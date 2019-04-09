@@ -21,19 +21,24 @@ namespace WebApiCoreEfCrud
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
+        // Esse método é chamado pelo tempo de execução. Use este método para adicionar serviços ao contêiner.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvc();
+            services.AddCors();
+            //services.AddDbContext<AppDbContext>(options => options.UseSqlServer(@"Your connection string"));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        // Esse método é chamado pelo tempo de execução. Use este método para configurar o pipeline de solicitação de HTTP.  
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseMiddleware();
+            app.UseCors();
 
             app.UseMvc();
         }
