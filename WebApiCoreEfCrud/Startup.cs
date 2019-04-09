@@ -9,6 +9,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using WebApiCoreEfCrud.DAL;
+using WebApiCoreEfCrud.Interface.DAL;
+using WebApiCoreEfCrud.Interface.Service;
+using WebApiCoreEfCrud.Service;
 
 namespace WebApiCoreEfCrud
 {
@@ -24,6 +28,12 @@ namespace WebApiCoreEfCrud
         // Esse método é chamado pelo tempo de execução. Use este método para adicionar serviços ao contêiner.
         public void ConfigureServices(IServiceCollection services)
         {
+            //  Serviços
+            services.AddScoped<IFuncionarioService, FuncionarioService>();
+
+            // DAL
+            services.AddScoped<IFuncionarioDAL, FuncionarioDAL>();
+
             services.AddMvc();
             services.AddCors();
             //services.AddDbContext<AppDbContext>(options => options.UseSqlServer(@"Your connection string"));

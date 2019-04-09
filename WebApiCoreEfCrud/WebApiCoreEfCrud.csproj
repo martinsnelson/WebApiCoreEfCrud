@@ -12,6 +12,14 @@
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WebApiCoreEfCrud.DAL\WebApiCoreEfCrud.DAL.csproj" />
+    <ProjectReference Include="..\WebApiCoreEfCrud.Interface\WebApiCoreEfCrud.Interface.csproj" />
+    <ProjectReference Include="..\WebApiCoreEfCrud.Models\WebApiCoreEfCrud.Models.csproj" />
+    <ProjectReference Include="..\WebApiCoreEfCrud.Service\WebApiCoreEfCrud.Service.csproj" />
   </ItemGroup>
 
 </Project>
